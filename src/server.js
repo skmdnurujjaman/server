@@ -10,10 +10,10 @@ require("dotenv").config();
 const PORT = process.env.PORT;
 
 app.use(express.json());
-app.get("api/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send("Call routes with /api");
 });
-app.use("api/", routes);
+app.use("/api", routes);
 
 app.listen(PORT, () => {
   console.log(`Server listening at ${PORT}`);
