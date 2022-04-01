@@ -1,21 +1,19 @@
 /** @format */
 const express = require("express");
-const { createData } = require("./controllers/data.controller");
+const {
+  createData,
+  getAllData,
+  getSingleData,
+} = require("./controllers/data.controller");
 const {
   validateData,
   isRequestValidated,
 } = require("./validators/data.validator");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  //return all data from database
-  res.send("Hello from server");
-});
+router.get("/", getAllData);
 
-router.get("/:id", (req, res) => {
-  //return single data from database
-  res.send("Hello from server");
-});
+router.get("/:id", getSingleData);
 
 router.post("/create", validateData, isRequestValidated, createData);
 
